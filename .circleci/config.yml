@@ -46,7 +46,7 @@ jobs:
   jsonnet:
     <<: *test
     docker:
-      - image: cimg/go:1.16.0-node
+      - image: cimg/golang:1.16.0-node
     steps:
       - checkout
       - run:
