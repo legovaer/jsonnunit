@@ -100,7 +100,7 @@ reading our Contributing Guide.
 ## Contributors
 
 Please see the full
-[Contributors Graph](https://github.com/legovaer/jsonnunit/graphs/contributors)
+[Contributors Graph](https://github.com/scalecity/jsonnunit/graphs/contributors)
 for our list of contributors.
 
 ### Core Contributors
