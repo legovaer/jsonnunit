@@ -5,13 +5,10 @@
 <p align="center">a BDD assertion style unit testing framework for JSONNET through an 'expect' interface
 </p>
 
-<p align="center">
-  <a href="">
-  [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-  [![Version](https://img.shields.io/npm/v/jsonnunit.svg)](https://npmjs.org/package/jsonnunit)
-  [![Downloads/week](https://img.shields.io/npm/dw/jsonnunit.svg)](https://npmjs.org/package/jsonnunit)
-  [![License](https://img.shields.io/npm/l/jsonnunit.svg)](https://github.com/legovaer/jsonnunit/blob/master/package.json)
-</p>
+
+[![codecov](https://codecov.io/gh/ScaleCity/jsonnunit/branch/main/graph/badge.svg?token=AAT99CII39)](https://codecov.io/gh/ScaleCity/jsonnunit)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit?ref=badge_shield)
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
 
 # 🗒 Description
 JSONNUNIT is a BDD assertion style unit testing framework for
@@ -75,3 +72,7 @@ Feel free to reach out to any of the core contributors with your questions or
 concerns. We will do our best to respond in a timely manner.
 
 [![Levi Govaerts](https://avatars.githubusercontent.com/u/5813212?s=460&u=d193f8f2d70dbbdd6df2d17b4ee5a275459ede4b&v=4)](https://github.com/legovaer)
+
+### License
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit?ref=badge_large)
