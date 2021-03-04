@@ -10,7 +10,7 @@
 [![codecov](https://codecov.io/gh/ScaleCity/jsonnunit/branch/main/graph/badge.svg?token=AAT99CII39)](https://codecov.io/gh/ScaleCity/jsonnunit)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit?ref=badge_shield)
 [![CircleCI](https://img.shields.io/circleci/build/github/ScaleCity/jsonnunit?token=e0790970e8a7223a7e3631f47f361660c110cb8f)](https://circleci.com/gh/ScaleCity/jsonnunit)
-![License](https://img.shields.io/npm/l/oclif.svg)](https://github.com/oclif/oclif/blob/master/package.json)
+![License](https://img.shields.io/npm/l/jsonnunit.svg)
 
 # 🗒 Description
 JSONNUNIT is a BDD assertion style unit testing framework for
