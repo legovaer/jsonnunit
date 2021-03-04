@@ -10,6 +10,17 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit?ref=badge_shield)
 [![CircleCI](https://circleci.com/gh/ScaleCity/jsonnunit.svg?style=svg)](https://circleci.com/gh/ScaleCity/jsonnunit)
 
+
+
+<!-- toc -->
+* [🗒 Description](#-description)
+* [🚀 Getting Started](#-getting-started)
+* [✨ Features](#-features)
+* [📌 Requirements](#-requirements)
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
+
 # 🗒 Description
 JSONNUNIT is a BDD assertion style unit testing framework for
 [JSONNET](https://jsonnet.org/) through an 'expect' interface. Basically you
@@ -30,14 +41,6 @@ If you haven't developed any unit tests before, this tutorial is a great place t
 # 📌 Requirements
 JSONNUNIT is written in [NodeJS](https://www.npmjs.com/package/node) and requires Node 8.5+. 
 
-<!-- toc -->
-* [🗒 Description](#-description)
-* [🚀 Getting Started](#-getting-started)
-* [✨ Features](#-features)
-* [📌 Requirements](#-requirements)
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
 # Usage
 <!-- usage -->
 ```sh-session
