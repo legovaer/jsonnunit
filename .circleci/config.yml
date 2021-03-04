@@ -46,14 +46,12 @@ jobs:
   jsonnet:
     <<: *test
     docker:
-      - image: bitnami/jsonnet:latest
+      - image: cimg/go:1.16.0-node
     steps:
       - checkout
       - run:
-          name: Install Node
-          command: |
-            curl -fsSL https://deb.nodesource.com/setup_15.x | bash -
-            apt-get install -y nodejs
+          name: Install Jsonnet
+          command: go get github.com/google/go-jsonnet/cmd/jsonnet
       - run:
           name: Install dependencies
           command: yarn
