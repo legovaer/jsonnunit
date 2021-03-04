@@ -31,6 +31,10 @@ If you haven't developed any unit tests before, this tutorial is a great place t
 JSONNUNIT is written in [NodeJS](https://www.npmjs.com/package/node) and requires Node 8.5+. 
 
 <!-- toc -->
+* [🗒 Description](#-description)
+* [🚀 Getting Started](#-getting-started)
+* [✨ Features](#-features)
+* [📌 Requirements](#-requirements)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
@@ -50,7 +54,36 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`jsonnunit help [COMMAND]`](#jsonnunit-help-command)
+* [`jsonnunit update [CHANNEL]`](#jsonnunit-update-channel)
 
+## `jsonnunit help [COMMAND]`
+
+display help for jsonnunit
+
+```
+USAGE
+  $ jsonnunit help [COMMAND]
+
+ARGUMENTS
+  COMMAND  command to show help for
+
+OPTIONS
+  --all  see all commands in CLI
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+
+## `jsonnunit update [CHANNEL]`
+
+update the jsonnunit CLI
+
+```
+USAGE
+  $ jsonnunit update [CHANNEL]
+```
+
+_See code: [@oclif/plugin-update](https://github.com/oclif/plugin-update/blob/v1.3.10/src/commands/update.ts)_
 <!-- commandsstop -->
 
 ## Contributing

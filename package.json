@@ -1,13 +1,13 @@
 {
   "name": "jsonnunit",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Simple and flexible jsonnet test framework in node.js",
   "author": "ScaleCity <info@scalecity.io>",
   "contributors": [
     "Levi Govaerts <levi@scalecity.io>"
   ],
   "bin": {
-    "jsonnunit": "./bin/run"
+    "jsonnunit": "bin/run"
   },
   "bugs": "https://github.com/scalecity/jsonnunit/issues",
   "dependencies": {
