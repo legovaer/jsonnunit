@@ -14,8 +14,6 @@ jobs:
       - run:
           name: Install dependencies
           command: yarn
-      - run: ./bin/run --version
-      - run: ./bin/run --help
       - run:
           name: Testing
           command: yarn test
@@ -45,6 +43,25 @@ jobs:
             - ~/jsonnunit/node_modules
             - /usr/local/share/.cache/yarn
             - /usr/local/share/.config/yarn
+  jsonnet:
+    <<: *test
+    docker:
+      - image: bitnami/jsonnet:latest
+    steps:
+      - checkout
+      - run:
+          name: Install Node
+          command: |
+            curl -fsSL https://deb.nodesource.com/setup_15.x | bash -
+            apt-get install -y nodejs
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run: ./bin/run --version
+      - run: ./bin/run --help
+      - run: 
+          name: Execute JSONNUNIT
+          command: ./bin/run
 
 workflows:
   version: 2
@@ -53,6 +70,7 @@ workflows:
       - node-latest
       - node-12
       - node-10
+      - jsonnet
       - cache:
           filters:
             tags:
