@@ -1,0 +1,61 @@
+{
+  "name": "jsonnunit",
+  "version": "1.0.0",
+  "description": "Simple and flexible jsonnet test framework in node.js",
+  "author": "ScaleCity <info@scalecity.io>",
+  "contributors": [
+    "Levi Govaerts <levi@scalecity.io>"
+  ],
+  "bin": {
+    "jsonnunit": "./bin/run"
+  },
+  "bugs": "https://github.com/scalecity/jsonnunit/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "chalk": "^4.1.0",
+    "cli-ux": "^5.5.1",
+    "execa": "^5.0.0",
+    "lodash": "^4.17.21",
+    "lookpath": "^1.2.0"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "chai": "^4.3.0",
+    "eslint": "^5.13",
+    "eslint-config-oclif": "^3.1",
+    "mocha": "^5",
+    "nyc": "^14"
+  },
+  "engines": {
+    "node": ">=8.5.0"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "homepage": "https://github.com/scalecity/jsonnunit",
+  "keywords": [
+    "oclif",
+    "jsonnet",
+    "jsonnunit",
+    "bdd",
+    "tdd",
+    "testing",
+    "assertion"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "bin": "jsonnunit"
+  },
+  "repository": "scalecity/jsonnunit",
+  "scripts": {
+    "posttest": "eslint .",
+    "prepack": "oclif-dev readme",
+    "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
