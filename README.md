@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/scalecity/jsonnunit/master/docs/images/banner-jsonnunit.png" alt="The JSONNUNIT logo is a black circle with in the center the red plus logo of Jsonnet" width="40%">
+  <img src="https://github.com/ScaleCity/jsonnunit/blob/main/docs/banner-jsonnunit.png?raw=true" alt="The JSONNUNIT logo is a black circle with in the center the red plus logo of Jsonnet" width="40%">
 </p>
 
 # JSONNUnit
