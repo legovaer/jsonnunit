@@ -56,4 +56,4 @@ for our list of contributors.
 Feel free to reach out to any of the core contributors with your questions or
 concerns. We will do our best to respond in a timely manner.
 
-[![Levi Govaerts](https://avatars.githubusercontent.com/u/5813212?s=460&u=d193f8f2d70dbbdd6df2d17b4ee5a275459ede4b&v=4](https://github.com/legovaer)
+[![Levi Govaerts](https://avatars.githubusercontent.com/u/5813212?s=460&u=d193f8f2d70dbbdd6df2d17b4ee5a275459ede4b&v=4)](https://github.com/legovaer)
