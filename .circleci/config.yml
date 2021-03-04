@@ -17,6 +17,8 @@ jobs:
       - run:
           name: Testing
           command: yarn test
+      - run: ./bin/run --version
+      - run: ./bin/run --help
       - run:
           name: Submitting code coverage to codecov
           command: |

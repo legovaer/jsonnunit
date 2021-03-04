@@ -7,12 +7,12 @@ const JsonnetUtil = require('./utils/jsonnet')
 class JsonnunitCommand extends Command {
   async run() {
     const {args} = this.parse(JsonnunitCommand)
-    
+
     if (args.version) {
-      this.log(this.config.userAgent);
-      this.exit(0);
+      this.log(this.config.userAgent)
+      this.exit(0)
     }
-    
+
     const testFolder = `${process.cwd()}/tests`
 
     // check if a tests folder exists.
