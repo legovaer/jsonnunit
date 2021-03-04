@@ -63,6 +63,26 @@ jobs:
           name: Execute JSONNUNIT
           command: ./bin/run
 
+  fossa:
+    <<: *test
+    docker:
+      - image: circleci/golang:1.16-node
+    steps:
+      - run: |
+          curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
+      - checkout
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          command: fossa init
+          working_directory: ~/jsonnunit
+      - run:
+          command: fossa analyze
+          working_directory: ~/jsonnunit
+
+
+
 workflows:
   version: 2
   "jsonnunit":
@@ -71,6 +91,7 @@ workflows:
       - node-12
       - node-10
       - jsonnet
+      - fossa
       - cache:
           filters:
             tags:
