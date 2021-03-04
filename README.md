@@ -8,10 +8,14 @@
 <p align="center">
   <a href="">
   [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit?ref=badge_shield)
   [![Version](https://img.shields.io/npm/v/jsonnunit.svg)](https://npmjs.org/package/jsonnunit)
   [![Downloads/week](https://img.shields.io/npm/dw/jsonnunit.svg)](https://npmjs.org/package/jsonnunit)
   [![License](https://img.shields.io/npm/l/jsonnunit.svg)](https://github.com/legovaer/jsonnunit/blob/master/package.json)
 </p>
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FScaleCity%2Fjsonnunit?ref=badge_large)
 
 # 🗒 Description
 JSONNUNIT is a BDD assertion style unit testing framework for
