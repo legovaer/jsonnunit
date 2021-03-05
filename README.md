@@ -22,17 +22,6 @@
 * [Commands](#commands)
 <!-- tocstop -->
 
-
-
-<!-- toc -->
-* [🗒 Description](#-description)
-* [🚀 Getting Started](#-getting-started)
-* [✨ Features](#-features)
-* [📌 Requirements](#-requirements)
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
-
 # 🗒 Description
 JSONNUNIT is a BDD assertion style unit testing framework for
 [JSONNET](https://jsonnet.org/) through an 'expect' interface. Basically you
@@ -60,7 +49,7 @@ $ npm install -g jsonnunit
 $ jsonnunit COMMAND
 running command...
 $ jsonnunit (-v|--version|version)
-jsonnunit/1.0.0 darwin-x64 node-v12.12.0
+jsonnunit/1.0.1 darwin-x64 node-v12.12.0
 $ jsonnunit --help [COMMAND]
 USAGE
   $ jsonnunit COMMAND
