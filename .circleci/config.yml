@@ -49,7 +49,7 @@ jobs:
           <<: *bundle_install
       - run:
           name: Jekyll build
-          command: bundle exec jekyll build
+          command: bundle exec jekyll build -d html
       - persist_to_workspace:
           root: ./
           paths:
@@ -81,7 +81,7 @@ jobs:
           at: ./
       - run:
           name: Disable jekyll builds
-          command: touch docs/_build/html/.nojekyll
+          command: touch html/.nojekyll
       - add_ssh_keys:
           fingerprints: 
             - "SHA256:VBqMP99quH8S1UtandDBVPIWwDj4CfrRWTVDslnGLPU"
