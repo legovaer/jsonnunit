@@ -1,78 +1,52 @@
 ---
+defaults: &defaults
+  working_directory: ~/repo
 version: 2
 jobs:
-  node-latest: &test
+  build:
+    <<: *defaults
     docker:
-      - image: node:latest
-    working_directory: ~/jsonnunit
+      - image: circleci/ruby:2.7
+    environment:
+      BUNDLE_PATH: ~/repo/vendor/bundle
     steps:
       - checkout
-      - restore_cache: &restore_cache
+      - restore_cache:
           keys:
-            - v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "yarn.lock"}}
-            - v1-npm-{{checksum ".circleci/config.yml"}}
+            - rubygems-v1-{{ checksum "Gemfile.lock" }}
+            - rubygems-v1-fallback
       - run:
-          name: Install dependencies
-          command: yarn
-      - run:
-          name: Testing
-          command: yarn test
-      - run: ./bin/run --version
-      - run: ./bin/run --help
-      - run:
-          name: Submitting code coverage to codecov
-          command: |
-            ./node_modules/.bin/nyc report --reporter text-lcov > coverage.lcov
-            curl -s https://codecov.io/bash | bash
-  node-12:
-    <<: *test
-    docker:
-      - image: node:12
-  node-10:
-    <<: *test
-    docker:
-      - image: node:10
-  cache:
-    <<: *test
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: yarn
+          name: Bundle Install
+          command: bundle check || bundle install
       - save_cache:
-          key: v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "yarn.lock"}}
+          key: rubygems-v1-{{ checksum "Gemfile.lock" }}
           paths:
-            - ~/jsonnunit/node_modules
-            - /usr/local/share/.cache/yarn
-            - /usr/local/share/.config/yarn
-  jsonnet:
-    <<: *test
-    docker:
-      - image: circleci/golang:1.16-node
-    steps:
-      - checkout
+            - vendor/bundle
       - run:
-          name: Install Jsonnet
-          command: go get github.com/google/go-jsonnet/cmd/jsonnet
+          name: Jekyll build
+          command: bundle exec jekyll build
       - run:
-          name: Install dependencies
-          command: yarn
-      - run: ./bin/run --version
-      - run: ./bin/run --help
-      - run: 
-          name: Execute JSONNUNIT
-          command: ./bin/run
+          name: HTMLProofer tests
+          command: |
+            bundle exec htmlproofer ./_site \
+              --allow-hash-href \
+              --check-favicon  \
+              --check-html \
+              --disable-external
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - _site
+
+
 workflows:
   version: 2
-  "jsonnunit":
+  test-deploy:
     jobs:
-      - node-latest
-      - node-12
-      - node-10
-      - jsonnet
-      - cache:
+      - build
+      - deploy:
+          requires:
+            - build
           filters:
-            tags:
-              only: /^v.*/
             branches:
-              ignore: /.*/
+              only: master
