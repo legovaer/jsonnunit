@@ -32,7 +32,7 @@ base_settings: &base_settings
     - save_cache: &save_cache
         key: rubygems-v1-{{ checksum "Gemfile.lock" }}
         paths:
-          - vendor
+          -  ~/repo/vendor
 
 
 ####################
@@ -52,7 +52,7 @@ jobs:
           name: Jekyll build
           command: bundle exec jekyll build -d html
       - persist_to_workspace:
-          root: ./
+          root:  ~/repo/
           paths:
             - html
             - vendor
@@ -80,7 +80,7 @@ jobs:
       - checkout
       - restore_cache: *restore_cache
       - attach_workspace:
-          at: ./
+          at:  ~/repo/
       - run:
           name: Disable jekyll builds
           command: touch html/.nojekyll
