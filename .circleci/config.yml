@@ -102,8 +102,13 @@ workflows:
   build:
     jobs:
       - build
-      - test
+      - test:
+          requires:
+            - build
       - docs_deploy:
+          requires:
+              - build
+              - test
           filters:
             branches:
               only: gh-pages
