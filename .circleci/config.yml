@@ -27,11 +27,12 @@ base_settings: &base_settings
           - rubygems-v1-fallback
     - run: &bundle_install
         name: Bundle Install
-        command: bundle check || bundle install
+        command: |
+          bundle check || bundle install
     - save_cache: &save_cache
         key: rubygems-v1-{{ checksum "Gemfile.lock" }}
         paths:
-          - vendor/bundle
+          - vendor
 
 
 ####################
@@ -54,6 +55,7 @@ jobs:
           root: ./
           paths:
             - html
+            - vendor
       - save_cache: *save_cache
 
   test:
@@ -61,14 +63,12 @@ jobs:
     steps:
       - checkout
       - restore_cache: *restore_cache
-      - run:
-          <<: *bundle_install
       - attach_workspace:
           at: ./
       - run:
           name: HTMLProofer tests
           command: |
-            bundle exec htmlproofer ./_site \
+            bundle exec htmlproofer ./html \
               --allow-hash-href \
               --check-favicon  \
               --check-html \
