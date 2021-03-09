@@ -1,30 +1,68 @@
----
+####################
+# CircleCI configuration reference:
+#   https://circleci.com/docs/2.0/configuration-reference
+####################
+# CircleCI built-in environment variables:
+#   https://circleci.com/docs/2.0/env-vars/#built-in-environment-variables
+####################
+
+####################
+# Templates: see "anchors" in https://learnxinyminutes.com/docs/yaml/
+####################
+
 defaults: &defaults
   working_directory: ~/repo
+  environment:
+    BUNDLE_PATH: ~/jsonnununit/vendor/bundle
+
+base_settings: &base_settings
+  <<: *defaults
+  docker:
+    - image: circleci/ruby:2.7-node
+  steps:
+    - checkout
+    - restore_cache: &restore_cache
+        keys:
+          - rubygems-v1-{{ checksum "Gemfile.lock" }}
+          - rubygems-v1-fallback
+    - run: &bundle_install
+        name: Bundle Install
+        command: bundle check || bundle install
+    - save_cache: &save_cache
+        key: rubygems-v1-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+
+
+####################
+# Jobs: see https://circleci.com/docs/2.0/jobs-steps/
+####################
 version: 2
 jobs:
+
   build:
-    <<: *defaults
-    docker:
-      - image: circleci/ruby:2.7
-    environment:
-      BUNDLE_PATH: ~/repo/vendor/bundle
+    <<: *base_settings
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - rubygems-v1-{{ checksum "Gemfile.lock" }}
-            - rubygems-v1-fallback
+      - restore_cache: *restore_cache
       - run:
-          name: Bundle Install
-          command: bundle check || bundle install
-      - save_cache:
-          key: rubygems-v1-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+          <<: *bundle_install
       - run:
           name: Jekyll build
           command: bundle exec jekyll build
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - html
+      - save_cache: *save_cache
+
+  test:
+    <<: *base_settings
+    steps:
+      - checkout
+      - restore_cache: *restore_cache
+      - attach_workspace:
+          at: ./
       - run:
           name: HTMLProofer tests
           command: |
@@ -33,20 +71,39 @@ jobs:
               --check-favicon  \
               --check-html \
               --disable-external
-      - persist_to_workspace:
-          root: ./
-          paths:
-            - _site
+
+  docs_deploy:
+    <<: *base_settings
+    steps:
+      - checkout
+      - restore_cache: *restore_cache
+      - attach_workspace:
+          at: ./
+      - run:
+          name: Disable jekyll builds
+          command: touch docs/_build/html/.nojekyll
+      - add_ssh_keys:
+          fingerprints: 
+            - "SHA256:VBqMP99quH8S1UtandDBVPIWwDj4CfrRWTVDslnGLPU"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: |
+            git config user.email "github@scalecity.io"
+            git config user.name "CircleCI docs-deploy job"
+            npm install -g --silent gh-pages@2.0.1
+            gh-pages --dotfiles --message "[skip ci] Updates" --dist html            
 
 
+####################
+# Workflows: see https://circleci.com/docs/2.0/workflows/
+####################
 workflows:
   version: 2
-  test-deploy:
+  build:
     jobs:
       - build
-      - deploy:
-          requires:
-            - build
+      - test
+      - docs_deploy:
           filters:
             branches:
-              only: master
+              only: gh-pages
