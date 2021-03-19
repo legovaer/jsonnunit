@@ -76,6 +76,8 @@ jobs:
 
   docs_deploy:
     <<: *base_settings
+    docker:
+      - image: cimg/node:15.11.0
     steps:
       - checkout
       - restore_cache: *restore_cache
