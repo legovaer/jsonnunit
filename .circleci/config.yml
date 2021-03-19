@@ -54,7 +54,7 @@ jobs:
       - persist_to_workspace:
           root:  ~/repo/
           paths:
-            - html
+            - _site
             - vendor
       - save_cache: *save_cache
 
