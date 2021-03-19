@@ -219,9 +219,9 @@ GEM
       jekyll-seo-tag (~> 2.1)
     minitest (5.14.4)
     multipart-post (2.1.1)
-    nokogiri (1.11.1-x86_64-darwin)
+    nokogiri (1.11.2-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.11.1-x86_64-linux)
+    nokogiri (1.11.2-x86_64-linux)
       racc (~> 1.4)
     nokogumbo (2.0.4)
       nokogiri (~> 1.8, >= 1.8.4)
@@ -234,6 +234,7 @@ GEM
     public_suffix (4.0.6)
     racc (1.5.2)
     rainbow (3.0.0)
+    rake (13.0.3)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -277,6 +278,7 @@ DEPENDENCIES
   html-proofer
   jekyll-commonmark-ghpages
   jekyll-feed (~> 0.12)
+  rake (>= 13.0.3)
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)

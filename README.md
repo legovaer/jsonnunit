@@ -1,5 +1,7 @@
 # JSONNUNIT Docs
 
+[![Site build](https://github.com/ScaleCity/jsonnunit/actions/workflows/build.yml/badge.svg?branch=gh-pages)](https://github.com/ScaleCity/jsonnunit/actions/workflows/build.yml)
+
 ## To Set up Locally
 
 You can take all the files of this site and run them just on your computer as if it were live online, only it's just on your machine.

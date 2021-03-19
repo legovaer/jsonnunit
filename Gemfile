@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 gem "github-pages", "~> 212", group: :jekyll_plugins
 gem "jekyll-commonmark-ghpages" 
 gem 'html-proofer'
-
+gem 'rake' , '>= 13.0.3'
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
 end
