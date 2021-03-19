@@ -193,6 +193,7 @@ exclude:
   - CNAME
   - vendor
   - Rakefile
+  - node_modules
 
 
 defaults:
