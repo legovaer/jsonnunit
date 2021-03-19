@@ -65,6 +65,8 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          <<: *bundle_install
+      - run:
           name: HTMLProofer tests
           command: |
             bundle exec rake test
