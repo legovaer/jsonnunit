@@ -9,6 +9,7 @@ article_header:
   theme: dark
   image:
     src: /assets/images/banner-jsonnunit-xlarge.png
+    alt: The jsonnunit logo has a black background and red crosses
 ---
 
 <!--more-->
