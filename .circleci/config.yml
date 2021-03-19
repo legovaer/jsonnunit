@@ -68,11 +68,7 @@ jobs:
       - run:
           name: HTMLProofer tests
           command: |
-            bundle exec htmlproofer ./html \
-              --allow-hash-href \
-              --check-favicon  \
-              --check-html \
-              --disable-external
+            rake test
 
   docs_deploy:
     <<: *base_settings
