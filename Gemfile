@@ -3,6 +3,8 @@ gem "github-pages", "~> 212", group: :jekyll_plugins
 gem "jekyll-commonmark-ghpages" 
 gem 'html-proofer'
 gem 'rake' , '>= 13.0.3'
+gem 'rubocop' , '>= 1.11.0'
+
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
 end
