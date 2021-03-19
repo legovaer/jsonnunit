@@ -19,3 +19,5 @@ tmp/_site
 .jekyll-metadata
 vendor
 node_modules
+.nyc_output
+yarn-error.log
