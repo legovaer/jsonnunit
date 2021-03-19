@@ -66,9 +66,14 @@ jobs:
       - attach_workspace:
           at: ./
       - run:
+          <<: *bundle_install
+      - run:
           name: HTMLProofer tests
           command: |
             bundle exec rake test
+      - run:
+          name: RuboCop Linting
+          command: bundle exec rubocop -D -S
 
   docs_deploy:
     <<: *base_settings
