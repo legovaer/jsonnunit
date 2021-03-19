@@ -68,7 +68,7 @@ jobs:
       - run:
           name: HTMLProofer tests
           command: |
-            rake test
+            bundle exec rake test
 
   docs_deploy:
     <<: *base_settings
