@@ -52,7 +52,7 @@ jobs:
           name: Jekyll build
           command: bundle exec jekyll build -d html
       - persist_to_workspace:
-          root:  ~/repo/
+          root:  ~/repo
           paths:
             - _site
             - vendor
