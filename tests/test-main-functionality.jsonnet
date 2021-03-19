@@ -1,4 +1,4 @@
-local JSONNUNIT = import "../jsonnet/jsonnunit.libsonnet";
+local JSONNUNIT = import "~/jsonnet/jsonnunit.libsonnet";
 
 JSONNUNIT
   .describe('Test "be" functionality',

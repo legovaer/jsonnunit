@@ -27,3 +27,4 @@ coverage
 
 test/auth/*
 !test/auth/.gitkeep
+.DS_Store
