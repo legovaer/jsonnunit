@@ -52,10 +52,9 @@ jobs:
           name: Jekyll build
           command: bundle exec jekyll build -d html
       - persist_to_workspace:
-          root:  ~/repo
+          root:  .
           paths:
-            - _site
-            - vendor
+            - .
       - save_cache: *save_cache
 
   test:
@@ -64,7 +63,7 @@ jobs:
       - checkout
       - restore_cache: *restore_cache
       - attach_workspace:
-          at: ./
+          at: .
       - run:
           <<: *bundle_install
       - run:
@@ -81,7 +80,7 @@ jobs:
       - checkout
       - restore_cache: *restore_cache
       - attach_workspace:
-          at:  ~/repo/
+          at:  .
       - run:
           name: Disable jekyll builds
           command: touch html/.nojekyll
