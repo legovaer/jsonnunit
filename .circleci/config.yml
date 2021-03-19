@@ -92,7 +92,7 @@ jobs:
           command: |
             git config user.email "github@scalecity.io"
             git config user.name "CircleCI docs-deploy job"
-            npm install -g --silent gh-pages@2.0.1
+            npm install -g gh-pages@2.0.1
             gh-pages --dotfiles --message "[skip ci] Updates" --dist html            
 
 
