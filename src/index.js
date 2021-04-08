@@ -150,7 +150,7 @@ against your code.
 JsonnunitCommand.flags = {
   version: flags.version({char: 'v'}),
   help: flags.help({char: 'h'}),
-  jpath: flags.string({char: 'J', description: 'Specify an additional library search dir (right-most wins)'}),
+  jpath: flags.string({multiple: true, char: 'J', description: 'Specify an additional library search dir (right-most wins)'}),
   verbose: flags.string({description: 'Outputs the entire tested object'}),
 }
 
