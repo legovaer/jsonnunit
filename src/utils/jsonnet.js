@@ -9,7 +9,12 @@ class JsonnetUtil {
     const executable = await lookpath('sjsonnet') ? await lookpath('sjsonnet') : await lookpath('jsonnet')
 
     // Add our jsonnet folder to the jsonnet search path.
-    const additionalArgs = ['-J', path.join(__dirname, '/../../jsonnet')]
+    let additionalArgs = ['-J', path.join(__dirname, '/../../jsonnet')]
+
+    // If a user adds an additional library search dir, add it to the jsonnet command.
+    if (options.librarySearchDir !== undefined) {
+      additionalArgs.push('-J', options.librarySearchDir)
+    }
 
     var opts = _.defaults(options || {}, {
       cwd: process.cwd(),
