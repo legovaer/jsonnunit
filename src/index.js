@@ -6,9 +6,9 @@ const JsonnetUtil = require('./utils/jsonnet')
 
 class JsonnunitCommand extends Command {
   async run() {
-    const {args} = this.parse(JsonnunitCommand)
+    const {flags} = this.parse(JsonnunitCommand)
 
-    if (args.version) {
+    if (flags.version) {
       this.log(this.config.userAgent)
       this.exit(0)
     }
@@ -39,6 +39,7 @@ class JsonnunitCommand extends Command {
 
       // eslint-disable-next-line no-await-in-loop
       let updatedCounters = await JsonnetUtil.exec([testFiles[i]], {
+        librarySearchDir: flags.jpath,
         errorCallback: error => {
           this.error(`An error occured while testing ${testFiles[i]}: ${error}`)
         },
@@ -149,6 +150,8 @@ against your code.
 JsonnunitCommand.flags = {
   version: flags.version({char: 'v'}),
   help: flags.help({char: 'h'}),
+  jpath: flags.string({char: 'J', description: 'Specify an additional library search dir (right-most wins)'}),
+  verbose: flags.string({description: 'Outputs the entire tested object'}),
 }
 
 module.exports = JsonnunitCommand
