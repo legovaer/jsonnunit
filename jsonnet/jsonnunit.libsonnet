@@ -129,7 +129,8 @@
 
     // Version 2.0 syntax
     expect(actual):: {
-      to: toExpectations(actual, pass, fail),
-      not: toExpectations(actual, fail, pass),
+      to: toExpectations(actual, pass, fail) + {
+        not: toExpectations(actual, fail, pass),
+      },
     },
 }
