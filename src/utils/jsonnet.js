@@ -13,7 +13,9 @@ class JsonnetUtil {
 
     // If a user adds an additional library search dir, add it to the jsonnet command.
     if (options.librarySearchDir !== undefined) {
-      additionalArgs.push('-J', options.librarySearchDir)
+      for (var  i = 0; i < options.librarySearchDir.length; i++) {
+        additionalArgs.push('-J', options.librarySearchDir[i])
+      }
     }
 
     var opts = _.defaults(options || {}, {
