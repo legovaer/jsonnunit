@@ -29,7 +29,8 @@ class JsonnetUtil {
     })
 
     try {
-      const {stdout} = await execa(executable, [...additionalArgs, ...args])
+      const {stdout, stderr} = await execa(executable, [...additionalArgs, ...args])
+      cli.log(stderr)
       return opts.successCallback(stdout)
     } catch (error) {
       return opts.errorCallback(error)
