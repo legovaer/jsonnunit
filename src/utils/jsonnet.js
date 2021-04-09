@@ -1,8 +1,9 @@
-const execa = require('execa')
 const _ = require('lodash')
 const {lookpath} = require('lookpath')
 const {cli} = require('cli-ux')
 const path = require('path')
+const util = require('util')
+const exec = util.promisify(require('child_process').exec)
 
 class JsonnetUtil {
   static async exec(args, options) {
@@ -13,7 +14,8 @@ class JsonnetUtil {
 
     // If a user adds an additional library search dir, add it to the jsonnet command.
     if (options.librarySearchDir !== undefined) {
-      for (var  i = 0; i < options.librarySearchDir.length; i++) {
+      var i
+      for (i = 0; i < options.librarySearchDir.length; i++) {
         additionalArgs.push('-J', options.librarySearchDir[i])
       }
     }
@@ -28,13 +30,18 @@ class JsonnetUtil {
       },
     })
 
-    try {
-      const {stdout, stderr} = await execa(executable, [...additionalArgs, ...args])
-      cli.log(stderr)
-      return opts.successCallback(stdout)
-    } catch (error) {
-      return opts.errorCallback(error)
+    var command = `${executable} `
+    var allArgs = [...additionalArgs, ...args]
+    var j
+    for (j = 0; j < allArgs.length; j++) {
+      command += `${allArgs[j]} `
     }
+
+    const {stdout, stderr} = await exec(command)
+    if (stderr) {
+      return opts.errorCallback(stderr)
+    }
+    return opts.successCallback(stdout)
   }
 }
 

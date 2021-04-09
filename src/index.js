@@ -8,6 +8,9 @@ class JsonnunitCommand extends Command {
   async run() {
     const {flags} = this.parse(JsonnunitCommand)
 
+    this.debug('Got thses flags:')
+    this.debug(flags)
+
     if (flags.version) {
       this.log(this.config.userAgent)
       this.exit(0)
@@ -44,7 +47,8 @@ class JsonnunitCommand extends Command {
           this.error(`An error occured while testing ${testFiles[i]}: ${error}`)
         },
         successCallback: data => {
-          return this.processTestcaseResults(JSON.parse(data).testcases)
+          let result =  this.processTestcaseResults(JSON.parse(data).testcases)
+          return result
         },
       })
 
