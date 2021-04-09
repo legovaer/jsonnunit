@@ -1,6 +1,6 @@
 {
   "name": "jsonnunit",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Simple and flexible jsonnet test framework in node.js",
   "author": "ScaleCity <info@scalecity.io>",
   "contributors": [

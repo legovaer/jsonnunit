@@ -49,7 +49,7 @@ $ npm install -g jsonnunit
 $ jsonnunit COMMAND
 running command...
 $ jsonnunit (-v|--version|version)
-jsonnunit/1.3.2 darwin-x64 node-v15.11.0
+jsonnunit/1.4.0 darwin-x64 node-v15.11.0
 $ jsonnunit --help [COMMAND]
 USAGE
   $ jsonnunit COMMAND
