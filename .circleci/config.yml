@@ -48,7 +48,7 @@ jobs:
   jsonnet:
     <<: *test
     docker:
-      - image: circleci/golang:1.16-node
+      - image: circleci/golang:1.17-node
     steps:
       - checkout
       - run:
